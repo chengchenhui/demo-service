@@ -1,0 +1,76 @@
+﻿##数据源地址
+spring:
+  datasource:
+    #type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:postgresql://127.0.0.1:5432/postgres
+    username: postgres
+    password: root
+    initialSize: 1
+    maxActive: 20
+    maxWait: 60000
+  application:
+    name: demo-service
+
+##启用Mybatis
+orm:
+  mybatis:
+    only: true
+
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.szewec.model
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 2
+    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+    field-strategy: 2
+    #驼峰下划线转换
+    db-column-underline: true
+    #刷新mapper 调试神器
+    refresh-mapper: true
+    #数据库大写下划线转换
+    #capital-mode: true
+    #序列接口实现类配置
+    #key-generator: com.baomidou.springboot.xxx
+    #逻辑删除配置
+    #logic-delete-value: 0
+    #logic-not-delete-value: 1
+    #自定义填充策略接口实现
+    #meta-object-handler: com.baomidou.springboot.xxx
+    #自定义SQL注入器
+    #sql-injector: com.baomidou.springboot.xxx
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+
+## 服务器端口，自行设置
+server:
+  port: 1111
+
+## 服务注册中心地址
+eureka:
+  instance:
+      status-page-url-path: /swagger-ui.html
+
+## 日志
+logging:
+  config: classpath:logback.xml
+
+platform:
+  url: http://10.0.7.128:8080
+##swagger配置
+swagger:
+  ##是否开启swagger文档
+  enable: true
+  ##网关
+  host: 10.0.7.128:8080
+  ##接口包(多个用,隔开)
+  basePackage: com.szewec.controller
+  ##文档标题
+  title: 示例
+  ##文档描述
+  description: 变更管理的功能
+  ##文档版本
+  version: 1.0
