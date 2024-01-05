@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class userServiceImpl implements userService {
     @Override
     public void searchUsersByPage(int pageIndex, int pageSize, UserModel user) {
-
+        System.out.println();
     }
 
     @Override
