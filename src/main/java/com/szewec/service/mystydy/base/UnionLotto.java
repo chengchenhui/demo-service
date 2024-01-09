@@ -1,4 +1,4 @@
-package com.szewec.service.mystydy;
+package com.szewec.service.mystydy.base;
 
 
 import java.util.Random;
@@ -53,7 +53,7 @@ public class UnionLotto {
                     System.out.println("红色号码无效，请重新输入第"+ (i + 1) + "个红色号码：");
                 }
         }
-        return count;
+        return count;`
     }
 
 
